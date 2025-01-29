@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Portofolioku</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111;
+            color: #fff;
+        }
+    
+        /* Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #111;
+            position: relative;
+        }
+
+        /* Desain Button Menu */
+        #menuBtn {
+            font-size: 30px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        #menuBtn:hover {
+            color: #00bcd4; /* Warna saat hover */
+            transform: scale(1.1); /* Memberikan efek perbesaran */
+        }
+
+        /* Desain Navbar */
+        #navbar {
+            display: flex;
+            flex-direction: column;
+            background-color: #111;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100vh;
+            padding-top: 60px;
+            transform: translateX(100%); /* Menyembunyikan navbar saat menu off */
+            transition: transform 0.4s ease-in-out;
+            opacity: 0;
+        }
+
+        /* Ketika menu aktif */
+        #navbar.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Tautan di Navbar */
+        #navbar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover efek pada tautan */
+        #navbar a:hover {
+            background-color: #00bcd4; /* Warna saat hover */
+        }
+
+        /* Desain untuk <ul> */
+        #menuItems {
+            list-style: none; /* Menghapus bullet point */
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Desain untuk tiap <li> */
+        #menuItems li {
+            width: 100%;
+        }
+
+        /* Desain untuk tautan <a> */
+        #menuItems a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            background-color: #111;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Efek saat hover */
+        #menuItems a:hover {
+            background-color: #00bcd4; /* Warna saat hover */
+            color: white;
+            transform: translateX(10px); /* Menambah efek geser */
+        }
+
+        /* Desain untuk link yang aktif */
+        #menuItems a.active {
+            background-color: #00bcd4;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 188, 212, 0.4);
+        }
+
+        /* Media Query untuk Responsif (Mobile dan Tablet) */
+        @media screen and (max-width: 768px) {
+            /* Button Menu */
+            #menuBtn {
+                font-size: 28px;
+            }
+
+            /* Navbar: membuatnya penuh di layar kecil */
+            #navbar {
+                width: 200px;
+                height: auto;
+                position: fixed;
+                top: 0;
+                left: 0; /* Menempatkan navbar di kiri */
+                transform: translateX(-100%); /* Menyembunyikan navbar di awal */
+                opacity: 1;
+                z-index: 99;
+            }
+
+            /* Ketika navbar aktif di layar kecil, di sebelah kiri */
+            #navbar.active {
+                transform: translateX(0);
+            }
+
+            /* Styling untuk setiap item di navbar */
+            #navbar a {
+                font-size: 18px;
+                padding: 12px 20px;
+            }
+
+            /* Menu items di <ul> */
+            #menuItems {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            /* Menjadikan setiap <li> responsif */
+            #menuItems li {
+                width: 100%;
+            }
+        }
+
+        /* Media Query untuk responsif di layar kecil (mobile) */
+        @media screen and (max-width: 480px) {
+            #menuItems a {
+                font-size: 16px; /* Menyesuaikan ukuran font lebih kecil */
+                padding: 12px;
+            }
+            
+            #menuBtn {
+                font-size: 28px;
+            }
+        }
+
+    
+    
+        /* Projects Section */
+        #projects {
+            padding: 50px;
+            background-color: ;
+            text-align: center;
+        }
+    
+        #projects h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+    
+        #projects p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 50px;
+        }
+
+        /* Membuat layout container menjadi fleksibel */
+        .card-container {
+            display: flex;
+            justify-content: space-between; /* Space antar kartu */
+            gap: 20px;
+            flex-wrap: wrap; /* Agar konten bisa melipat jika ukuran layar lebih kecil */
+            margin: 20px auto;
+            max-width: 1000px;
+        }
+
+        /* Kartu individual */
+        .card {
+            flex: 1 1 calc(33.33% - 20px); /* Setiap kartu mendapat lebar 33% dari container */
+            background-color: #111;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow halus */
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        /* Agar gambar berada di dalam batas kartu dan responsif */
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Hover efek */
+        .card:hover {
+            transform: translateY(-10px); /* Angkat kartu sedikit saat hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Gaya judul dan link */
+        .card h3 {
+            font-size: 1.5em;
+            color: #fff;
+            margin: 20px 0 10px;
+        }
+
+        .card p {
+            font-size: 1.1em;
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Link di kartu */
+        .card a {
+            color: #00bcd4;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .card a:hover {
+            color: #00796b;
+        }
+
+        /* Responsif untuk tampilan layar lebih kecil (misalnya mobile) */
+        @media (max-width: 768px) {
+            .card {
+                flex: 1 1 100%; /* Kartu mengisi lebar penuh pada layar kecil */
+            }
+        }
+
+    
+        
+    
+        .separator {
+            border: none;
+            border-top: 2px solid #00bcd4; /* Warna pink */
+            margin: 50px auto; /* Jarak atas-bawah */
+            width: 50%; /* Lebar garis */
+        }
+    
+        /* Testimonials Section */
+        #testimonials {
+           padding: 50px;
+           background-color: #f5f5f5;
+        }
+
+        #testimonials h3 {
+            color: #00bcd4;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .testimonial {
+            display: flex;
+            justify-content: center;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .testimonial img {
+           width: 100%;
+          border-radius: 10px; /* Persegi panjang dengan sudut melengkung */
+        }
+    
+        /* Section title */
+        #software h3 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #00bcd4;
+        }
+
+        /* Daftar software */
+        .software-list, .software2-list {
+            display: flex;
+            justify-content: center;
+            gap: 30px; /* Jarak antar ikon */
+            flex-wrap: wrap; /* Membuat responsif dan tata letak flex melipat jika lebar layar kecil */
+            margin-bottom: 40px;
+        }
+
+        /* Card untuk software */
+        .software-card, .software2-card {
+            text-align: center;
+            flex: 1 1 calc(33.33% - 20px); /* Setiap card menggunakan 33% space dari container */
+            max-width: 120px; /* Maksimum lebar kartu */
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Gambar logo software */
+        .software-card img, .software2-card img {
+            width: 100%;
+            height: auto;
+            max-width: 60px; /* Atur ukuran gambar supaya pas */
+            margin-bottom: 10px;
+        }
+
+        /* Hilangkan garis bawah pada link */
+        .software-card a, .software2-card a {
+            text-decoration: none; /* Hilangkan garis bawah */
+            color: inherit; /* Warna teks mengikuti warna dari parent (card) */
+        }
+
+        /* Efek saat hover */
+        .software-card a:hover, .software2-card a:hover {
+            color: inherit; /* Tetap menggunakan warna teks yang sama saat hover */
+            background-color: transparent; /* Jaga latar belakang tetap transparan saat hover */
+            transform: translateY(-10px); /* Efek hover tetap sama seperti sebelumnya */
+        }
+
+
+        /* Hover effect */
+        .software-card:hover, .software2-card:hover {
+            transform: translateY(-10px); /* Efek mengangkat kartu saat hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Tambah bayangan lebih tebal */
+        }
+
+        /* Menambahkan gaya untuk teks */
+        .software-card p, .software2-card p {
+            font-size: 1em;
+            color: #333;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+
+        /* Responsif untuk layar kecil */
+        @media (max-width: 768px) {
+            .software-card, .software2-card {
+                flex: 1 1 45%; /* Dua per baris */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .software-card, .software2-card {
+                flex: 1 1 100%; /* Satu per baris pada layar lebih kecil */
+            }
+        }
+
+    
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #111;
+        }
+    
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+    
+        .social-icons a:hover {
+            color: #00bcd4;
+        }
+    
+        /* Responsif untuk screen kecil */
+        @media (max-width: 768px) {
+            /* Mengatur layout untuk section project */
+            #projects {
+                padding: 30px;
+            }
+    
+            #projects h2 {
+                font-size: 2em;
+            }
+    
+            #projects p {
+                font-size: 1em;
+            }
+    
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            .card {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+    
+            /* Mengubah ukuran font pada judul project */
+            .separator {
+                width: 80%;
+            }
+    
+            /* Testimonials section */
+            #testimonials .testimonial {
+                flex-direction: column;
+                text-align: center;
+            }
+    
+            /* Software section */
+            #software .software-list {
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            #software .software-card {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+    
+            /* Footer */
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+    
+            footer .social-icons {
+                margin-top: 10px;
+            }
+        }
+    
+        /* Responsif untuk layar lebih besar (tablet) */
+        @media (max-width: 1024px) {
+            #hero h1 {
+                font-size: 2.5em;
+            }
+    
+            .card-container {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+    
+            .card {
+                width: 45%;
+            }
+    
+            #testimonials .testimonial {
+                flex-direction: row;
+                text-align: left;
+            }
+    
+            #software .software-card {
+                width: 45%;
+            }
+    
+            footer {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    </style>    
+</head>
+<body>
+    <header>
+        <button id="menuBtn" onclick="toggleMenu()" aria-label="Toggle Menu">
+            ☰
+        </button>
+        
+        <nav id="navbar">
+            <!-- Menu items akan berada di sini -->
+            <ul id="menuItems">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="kontak.html">Saran</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <p>Here are some of my best works and projects showcasing my skills in web development, Thumbnail editing, and AI integration.</p>
+
+        <div class="card-container">
+            <div class="card">
+                <img src="project1.jpg" alt="Project 1">
+                <h3>Glamora-Online Store</h3>
+                <p>Ini adalah project akhir (membuat E-commerce) yang ku buat di Bootcamp Bandung Ai: Development with AI</p>
+                <a href="https://yourproject1link.com" target="_blank">aku lupa hosting :b</a>
+            </div>
+            <div class="card">
+                <img src="project2.jpg" alt="Project 2">
+                <h3>About Chara in MLBB</h3>
+                <p>Tujuanku membuat web ini untuk mendeskripsikan cerita/lore atau kategori dari karakter/hero di game MLBB</p>
+                <a href="https://yourproject2link.com" target="_blank">View Project</a>
+            </div>
+            <div class="card">
+                <img src="project3.jpg" alt="Project 3">
+                <h3>Web Promotion</h3>
+                <p>aku membuat web ini (iseng) untuk mempromosikan sebuah game online (MLBB)</p>
+                <a href="https://yourproject3link.com" target="_blank">View Project</a>
+            </div>
+        </div>
+        
+
+        <hr class="separator">
+
+        <h2>Thumbnail Editing</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="thumbnail1.jpg" alt="Thumbnail 1">
+                <h3>Thumbnail editing example 1.</h3>
+            </div>
+            <div class="card">
+                <img src="thumbnail2.jpg" alt="Thumbnail 2">
+                <h3>Thumbnail editing example 2.</h3>
+            </div>
+            <div class="card">
+                <img src="thumbnail3.jpg" alt="Thumbnail 3">
+                <h3>Thumbnail editing example 3.</h3>
+            </div>
+        </div>
+    </section>
+
+    <hr class="separator">
+
+
+    <section id="testimonials">
+        <h3>AI Prompt Screenshots</h3>
+        <div class="testimonial">
+            <img src="ai1.jpg" alt="AI Prompt 1">
+            <p></p>
+        </div>
+        <div class="testimonial">
+            <img src="ai2.jpg" alt="AI Prompt 2">
+            <p></p>
+        </div>
+    </section>
+
+    <hr class="separator">
+
+    <section id="software">
+        <h3>Software I Use</h3>
+        <div class="software-list">
+            <div class="software-card">
+                <a href="https:///www.youtube.com" target="_blank">
+                    <img src="yucub.png" alt="Software 1">
+                    <p>Yucub</p>
+                </a>
+            </div>
+            <div class="software-card">
+                <a href="https://www.tiktok.com" target="_blank">
+                    <img src="tiktok.png" alt="Software 2">
+                    <p>Tiktok</p>
+                </a>
+            </div>
+            <div class="software-card">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="ig.png" alt="Software 3">
+                    <p>Instagram</p>
+                </a>
+            </div>
+        </div>
+    
+        <hr class="separator">
+        <h3>For Editing</h3>
+    
+        <div class="software2-list">
+            <div class="software2-card">
+                <a href="https://code.visualstudio.com" target="_blank">
+                    <img src="vscode.png" alt="software 4">
+                    <p>VS Code</p>
+                </a>
+            </div>
+            <div class="software2-card">
+                <a href="https://www.capcut.com" target="_blank">
+                    <img src="capcut.png" alt="software 5">
+                    <p>Capcut</p>
+                </a>
+            </div>
+            <div class="software2-card">
+                <a href="https://picsart.com" target="_blank">
+                    <img src="picsart.png" alt="software 6">
+                    <p>Picsart</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <footer>
+        <div>&copy; 2024 FeroFasya</div>
+        <div class="social-icons">
+            <a href="https://www.tiktok.com/@ferdailyyy">Tiktok</a>
+            <a href="https://www.youtube.com/@FerDaily">Youtube</a>
+            <a href="https://www.instagram.com/ferogaaa">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('active');
+        }
+
+        // Menutup menu jika klik di luar navbar
+        document.addEventListener('click', function(event) {
+            const navbar = document.getElementById('navbar');
+            const menuButton = document.getElementById('menuBtn');
+
+            // Jika klik di luar tombol menu dan navbar
+            if (!navbar.contains(event.target) && !menuButton.contains(event.target)) {
+                navbar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

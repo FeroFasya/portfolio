@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saran untuk Portofolio</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111;
+            color: #fff;
+        }
+
+        /* Navigation */
+        header {
+            display: flex;
+            justify-content: space-between; /* Pusatkan navigasi */
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #111;
+            position: relative;
+        }
+
+        /* Desain Button Menu */
+        #menuBtn {
+            font-size: 30px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        #menuBtn:hover {
+            color: #00bcd4; /* Warna saat hover */
+            transform: scale(1.1); /* Memberikan efek perbesaran */
+        }
+
+        /* Desain Navbar */
+        #navbar {
+            display: flex;
+            flex-direction: column;
+            background-color: #111;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100vh;
+            padding-top: 60px;
+            transform: translateX(100%); /* Menyembunyikan navbar saat menu off */
+            transition: transform 0.4s ease-in-out;
+            opacity: 0;
+        }
+
+        /* Ketika menu aktif */
+        #navbar.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Tautan di Navbar */
+        #navbar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover efek pada tautan */
+        #navbar a:hover {
+            background-color: #00bcd4; /* Warna saat hover */
+        }
+
+        /* Desain untuk <ul> */
+        #menuItems {
+            list-style: none; /* Menghapus bullet point */
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Desain untuk tiap <li> */
+        #menuItems li {
+            width: 100%;
+        }
+
+        /* Desain untuk tautan <a> */
+        #menuItems a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            background-color: #111;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Efek saat hover */
+        #menuItems a:hover {
+            background-color: #00bcd4; /* Warna saat hover */
+            color: white;
+            transform: translateX(10px); /* Menambah efek geser */
+        }
+
+        /* Desain untuk link yang aktif */
+        #menuItems a.active {
+            background-color: #00bcd4;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 188, 212, 0.4);
+        }
+
+        /* Media Query untuk Responsif (Mobile dan Tablet) */
+        @media screen and (max-width: 768px) {
+            /* Button Menu */
+            #menuBtn {
+                font-size: 28px;
+            }
+
+            /* Navbar: membuatnya penuh di layar kecil */
+            #navbar {
+                width: 200px;
+                height: auto;
+                position: fixed;
+                top: 0;
+                left: 0; /* Menempatkan navbar di kiri */
+                transform: translateX(-100%); /* Menyembunyikan navbar di awal */
+                opacity: 1;
+                z-index: 99;
+            }
+
+            /* Ketika navbar aktif di layar kecil, di sebelah kiri */
+            #navbar.active {
+                transform: translateX(0);
+            }
+
+            /* Styling untuk setiap item di navbar */
+            #navbar a {
+                font-size: 18px;
+                padding: 12px 20px;
+            }
+
+            /* Menu items di <ul> */
+            #menuItems {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            /* Menjadikan setiap <li> responsif */
+            #menuItems li {
+                width: 100%;
+            }
+        }
+
+        /* Media Query untuk responsif di layar kecil (mobile) */
+        @media screen and (max-width: 480px) {
+            #menuItems a {
+                font-size: 16px; /* Menyesuaikan ukuran font lebih kecil */
+                padding: 12px;
+            }
+            
+            #menuBtn {
+                font-size: 28px;
+            }
+        }
+        
+        /* Hero Section */
+        #hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 50px;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .intro {
+            max-width: 90%;
+        }
+
+        .intro h1 {
+            font-size: 4em;
+            color: #fff;
+        }
+
+        .intro h1 span {
+            color: #00bcd4;
+        }
+
+        .intro p {
+            margin: 20px 0;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 30px;
+            margin-top: 20px;
+            background-color: transparent;
+            border: 2px solid #00bcd4;
+            color: #00bcd4;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #00bcd4;
+            color: #fff;
+        }
+
+        /* Divider */
+        .divider {
+            width: 100%;
+            height: 2px;
+            background-image: linear-gradient(to right, #00bcd4, #ff80ab);
+            margin: 50px 0;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 50px;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        #contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #contact input, #contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #contact input[type="submit"] {
+            background-color: #00bcd4;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #contact input[type="submit"]:hover {
+            background-color: #97d2da;
+        }
+        
+
+        #suggestions {
+            position: relative;
+            height: 200px; /* Atur tinggi sesuai kebutuhan */
+            overflow: hidden;
+        }
+
+        .suggestion {
+            position: absolute;
+            white-space: nowrap;
+            opacity: 0.8;
+            animation: float 10s linear forwards; /* Menggunakan 'forwards' untuk menghentikan animasi di akhir */
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateX(-100%); /* Mulai dari luar layar di kiri */
+            }
+            0% {
+                transform: translateX(100vw); /* Bergerak ke luar layar di kanan */
+            }
+            100% {
+                opacity: 0; /* Menghilangkan elemen */
+            }
+        }
+
+
+        /* Popup Styles */
+        .popup {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Latar belakang transparan */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Mengatur agar popup muncul dari atas */
+            z-index: 1000; /* Pastikan popup di atas elemen lain */
+        }
+
+        .popup-content {
+            background-color: 111;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            transform: translateY(-100%); /* Mulai dari atas */
+            animation: slideDown 0.5s forwards; /* Animasi slide down */
+        }
+
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%); /* Mulai dari atas */
+            }
+            100% {
+                transform: translateY(0); /* Berhenti di posisi normal */
+            }
+        }
+
+        .close {
+            cursor: pointer;
+            margin-left: auto;
+            font-size: 20px;
+            color: #333;
+        }
+
+        #whatsappLink {
+            text-decoration: none; /* Menghilangkan garis bawah */
+            color: #00bcd4; /* Menggunakan warna teks yang sama */
+        }
+
+       
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #111;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        .social-icons a:hover {
+            color: #00bcd4;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header ul {
+                display: none; /* Sembunyikan menu di layar kecil */
+                flex-direction: column; /* Ubah menjadi kolom di layar kecil */
+                position: absolute; /* Posisi absolute untuk dropdown */
+                top: 70px; /* Jarak dari atas */
+                left: 0;
+                right: 0;
+                background-color: #111; /* Warna latar belakang */
+                padding: 10px 0; /* Padding untuk dropdown */
+            }
+
+            header ul.active {
+                display: flex; /* Tampilkan menu saat hamburger diklik */
+            }
+
+            .navbar-toggler {
+                display: block; /* Tampilkan tombol hamburger di layar kecil */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button id="menuBtn" onclick="toggleMenu()" aria-label="Toggle Menu">
+            ☰
+        </button>
+        
+        <nav id="navbar">
+            <!-- Menu items akan berada di sini -->
+            <ul id="menuItems">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="kontak.html" class="active">Saran</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="intro">
+            <h1>Berikan aku <span>Saran</span></h1>
+            <p>Sebelum Kamu ingin kontak aku, alangkah baiknya beri aku saran terlebih dahulu, Berikan pendapatmu tentang portofolioku. Saranmu sangat berarti!</p>
+            <a href="#contact" class="btn">Kirim Saran</a>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="contact">
+        <h2>Saran untuk Portofolio</h2>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Nama" required>
+            <textarea name="message" rows="5" placeholder="Saran" required></textarea>
+            <input type="submit" value="Kirim">
+        </form>
+        <div id="suggestions"></div>
+        <div id="whatsappPopup" class="popup" style="display: none;">
+            <div class="popup-content">
+                <span class="close" id="closePopup">&times;</span>
+                <a id="whatsappLink" href="https://wa.me/628815750989?text=Saran%20apa%20untukku%F0%9F%A5%B0" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 30px; height: 30px; margin-right: 10px;">
+                    <span>Kasih saran di WA aja wkwk, aku gapunya database, Klik!</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>&copy; 2024 FeroFasya</div>
+        <div class="social-icons">
+            <a href="https://www.tiktok.com/@ferdailyyy">Tiktok</a>
+            <a href="https://www.youtube.com/@FerDaily">Youtube</a>
+            <a href="https://www.instagram.com/ferogaaa">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        
+            
+        function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('active');
+        }
+
+        // Menutup menu jika klik di luar navbar
+        document.addEventListener('click', function(event) {
+            const navbar = document.getElementById('navbar');
+            const menuButton = document.getElementById('menuBtn');
+
+            // Jika klik di luar tombol menu dan navbar
+            if (!navbar.contains(event.target) && !menuButton.contains(event.target)) {
+                navbar.classList.remove('active');
+            }
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah form dari pengiriman default
+
+            const message = event.target.message.value;
+
+            // Buat elemen baru untuk saran
+            const suggestion = document.createElement('div');
+            suggestion.className = 'suggestion';
+            suggestion.innerHTML = `<img src="https://via.placeholder.com/30" alt="No Profile" style="border-radius: 50%; margin-right: 10px;"> <strong>Anomali</strong>: ${message}`;
+
+            // Tambahkan saran ke dalam div suggestions
+            document.getElementById('suggestions').appendChild(suggestion);
+
+            // Tampilkan popup WhatsApp
+            const whatsappLink = document.getElementById('whatsappLink');
+            whatsappLink.href = `https://wa.me/628815750989?text=Saran%20apa%20untukku%F0%9F%A5%B0${encodeURIComponent(message)}`; // Ganti 'nomor_wa_kamu' dengan nomor WhatsApp kamu
+            document.getElementById('whatsappPopup').style.display = 'flex';
+
+            // Reset form
+            event.target.reset();
+        });
+
+        // Menutup popup saat tombol close diklik
+        document.getElementById('closePopup').addEventListener('click', function() {
+            document.getElementById('whatsappPopup').style.display = 'none'; // Menyembunyikan popup saat tombol close diklik
+        });
+    </script>
+</body>
+</html>

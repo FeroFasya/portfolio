@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Home - Portofolioku</title>
+    
+</head>
+<body>
+    <header>
+        <button id="menuBtn" onclick="toggleMenu()" aria-label="Toggle Menu">
+            ☰
+        </button>
+        
+        <nav id="navbar">
+            <!-- Menu items akan berada di sini -->
+            <ul id="menuItems">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="kontak.html">Saran</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section id="hero">
+        <div class="intro">
+            <!-- Tambahan konten baru -->
+            <h1>Hi, I'm <span>Fasya</span>, a Content Creator & Web Developer!</h1>
+            <p>Kenali lebih dekat siapa aku, projek yang aku buat, dan saranmu sangat berarti!</p>
+        
+            <!-- Foto Profesional atau Ilustrasi -->
+            <img src="img/aku.jpg" alt="Foto Fasya" style="width: 150px; height: 150px; border-radius: 50%; margin: 20px 0;">
+        
+            <!-- CTA Buttons -->
+            <div style="margin: 20px 0;">
+                <a href="projects.html" class="btn">See My Work</a>
+                <a href="about.html" class="btn">About me?</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills-section">
+        <h3>Skills</h3>
+        <!-- HTML/CSS Slider -->
+        <div class="skill-container">
+            <p>HTML/CSS</p>
+            <input type="range" min="0" max="100" value="60" id="htmlSlider">
+            <span id="htmlPercent">60%</span>
+        </div>
+        <!-- Video Editing Slider -->
+        <div class="skill-container">
+            <p>Video Editing</p>
+            <input type="range" min="0" max="100" value="65" id="videoSlider">
+            <span id="videoPercent">65%</span>
+        </div>
+        <!-- Backend Development Slider -->
+        <div class="skill-container">
+            <p>Backend Development</p>
+            <input type="range" min="0" max="100" value="20" id="backendSlider">
+            <span id="backendPercent">20%</span>
+        </div>
+    </section>
+
+    <!-- Popup Section -->
+    <div id="popup">
+        <p id="popupText">Placeholder Text</p>
+        <img id="popupImage" src="" alt="Popup Image" />
+    </div>
+
+    
+
+    <footer>
+        <div>&copy; 2024 FeroFasya</div>
+        <div class="social-icons">
+            <a href="https://www.tiktok.com/@ferdailyyy">Tiktok</a>
+            <a href="https://www.youtube.com/@FerDaily">Youtube</a>
+            <a href="https://www.instagram.com/ferogaaa">Instagram</a>
+        </div>
+    </footer>
+    <script>
+        const popupContainer = document.getElementById('popup');
+        const popupText = document.getElementById('popupText');
+        const popupImage = document.getElementById('popupImage');
+
+        // Fungsi untuk menampilkan popup dengan gambar
+        function showPopup(message, imgSrc) {
+            popupText.innerText = message;
+            popupImage.src = imgSrc; // Ganti sumber gambar
+            popupContainer.style.display = "block";
+
+            setTimeout(() => {
+                popupContainer.style.display = "none";
+            }, 3000); // Popup muncul selama 3 detik
+        }
+
+        // Handle slider untuk HTML Slider
+        function handleSkillSlider(slider, percentLabel, threshold, increaseMessage, decreaseMessage, happyImg, sadImg) {
+            slider.addEventListener('input', function () {
+                const currentValue = slider.value;
+                percentLabel.innerText = `${currentValue}%`;
+
+                // Jika nilai slider naik atau turun melewati ambang batas
+                if (currentValue > threshold) {
+                    showPopup(increaseMessage, happyImg); // Jika nilai lebih tinggi
+                } else if (currentValue < threshold) {
+                    showPopup(decreaseMessage, sadImg); // Jika nilai lebih rendah
+                }
+            });
+        }
+
+        // Panggil fungsi slider dengan gambar stiker
+        handleSkillSlider(
+            document.getElementById('htmlSlider'), 
+            document.getElementById('htmlPercent'), 
+            60, 
+            'Makasih udah naikin skill HTML/CSS-ku!', 
+            'Kenapa kamu turunin skill HTML/CSS-ku?', 
+            'img/seneng.png', 
+            'img/kesel.png'
+        );
+
+        handleSkillSlider(
+            document.getElementById('videoSlider'), 
+            document.getElementById('videoPercent'), 
+            65, 
+            'Makasih udah naikin skill Video Editing-ku!', 
+            'Kenapa kamu turunin skill Video Editing-ku?', 
+            'img/seneng.png', 
+            'img/kesel.png'
+        );
+
+        handleSkillSlider(
+            document.getElementById('backendSlider'), 
+            document.getElementById('backendPercent'), 
+            20, 
+            'Makasih udah naikin skill Backend Development-ku!', 
+            'Kenapa kamu turunin skill Backend Development-ku?', 
+            'img/seneng.png', 
+            'img/kesel.png'
+        );
+
+        function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('active');
+        }
+
+        // Menutup menu jika klik di luar navbar
+        document.addEventListener('click', function(event) {
+            const navbar = document.getElementById('navbar');
+            const menuButton = document.getElementById('menuBtn');
+
+            // Jika klik di luar tombol menu dan navbar
+            if (!navbar.contains(event.target) && !menuButton.contains(event.target)) {
+                navbar.classList.remove('active');
+            }
+        });
+
+    </script>
+</body>
+</html>
