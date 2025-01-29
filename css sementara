@@ -121,20 +121,17 @@
             /* Button Menu */
             #menuBtn {
                 font-size: 28px;
-                padding: 10px;
             }
 
             /* Navbar: membuatnya penuh di layar kecil */
             #navbar {
-                width: 250px;
-                height: 100vh;
+                width: 200px;
+                height: auto;
                 position: fixed;
                 top: 0;
-                left: 0;
-                background-color: #333; /* Bisa ditambahkan background */
+                left: 0; /* Menempatkan navbar di kiri */
                 transform: translateX(-100%); /* Menyembunyikan navbar di awal */
                 opacity: 1;
-                transition: transform 0.3s ease; /* Penambahan animasi saat navbar muncul */
                 z-index: 99;
             }
 
@@ -145,17 +142,8 @@
 
             /* Styling untuk setiap item di navbar */
             #navbar a {
-                color: white;
                 font-size: 18px;
                 padding: 12px 20px;
-                text-decoration: none;
-                border-bottom: 1px solid #444; /* Tambahkan border untuk pemisah antar item */
-                display: block;
-            }
-
-            /* Navbar item hover effect */
-            #navbar a:hover {
-                background-color: #555; /* Efek hover agar lebih menarik */
             }
 
             /* Menu items di <ul> */
@@ -164,71 +152,25 @@
                 flex-direction: column;
                 gap: 10px;
                 width: 100%;
-                padding-top: 60px; /* Memberikan ruang di atas navbar */
             }
 
             /* Menjadikan setiap <li> responsif */
             #menuItems li {
                 width: 100%;
             }
-
-            /* Hero section adjustments for mobile */
-            #hero {
-                padding: 30px 10px;
-            }
-
-            #hero h1 {
-                font-size: 24px; /* Ukuran font heading lebih kecil */
-            }
-
-            #hero p {
-                font-size: 16px; /* Menyesuaikan ukuran font teks */
-            }
-
-            #hero img {
-                width: 120px;
-                height: 120px;
-            }
         }
 
         /* Media Query untuk responsif di layar kecil (mobile) */
         @media screen and (max-width: 480px) {
-            /* Adjust font size for smaller screens */
             #menuItems a {
-                font-size: 16px; /* Ukuran font lebih kecil */
-                padding: 12px 15px;
+                font-size: 16px; /* Menyesuaikan ukuran font lebih kecil */
+                padding: 12px;
             }
-
+            
             #menuBtn {
                 font-size: 28px;
             }
-
-            #hero h1 {
-                font-size: 22px; /* Mengurangi ukuran font judul */
-            }
-
-            #hero p {
-                font-size: 14px; /* Ukuran teks lebih kecil lagi untuk ponsel kecil */
-            }
-
-            #skills-section h3 {
-                font-size: 18px; /* Ukuran heading skill section lebih kecil */
-            }
-
-            .skill-container input[type="range"] {
-                width: 100%;
-            }
-
-            .social-icons a {
-                font-size: 14px; /* Mengatur ukuran font link di footer */
-                margin-left: 10px;
-            }
-
-            footer {
-                padding: 15px;
-            }
         }
-
 
     
 
