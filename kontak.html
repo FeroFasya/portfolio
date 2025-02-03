@@ -286,7 +286,7 @@
             position: absolute;
             white-space: nowrap;
             opacity: 0.8;
-            animation: float 10s linear forwards; /* Menggunakan 'forwards' untuk menghentikan animasi di akhir */
+            animation: float 5s linear forwards; /* Menggunakan 'forwards' untuk menghentikan animasi di akhir */
         }
 
         @keyframes float {
@@ -474,7 +474,7 @@
             // Buat elemen baru untuk saran
             const suggestion = document.createElement('div');
             suggestion.className = 'suggestion';
-            suggestion.innerHTML = `<img src="https://via.placeholder.com/30" alt="No Profile" style="border-radius: 50%; margin-right: 10px;"> <strong>Anomali</strong>: ${message}`;
+            suggestion.innerHTML = `<img src="" alt="" style="border-radius: 50%; margin-right: 10px;"> <strong>👻Anomali👻</strong>: ${message}`;
 
             // Tambahkan saran ke dalam div suggestions
             document.getElementById('suggestions').appendChild(suggestion);
