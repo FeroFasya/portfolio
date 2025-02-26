@@ -24,6 +24,44 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Sertifikat Slider Section -->
+    <section class="certificates-section">
+        <h2>Sertifikat</h2>
+
+        <div class="slider-container">
+            <div class="slider">
+                <!-- Sertifikat Proyek & Keahlian -->
+                <div class="slide">
+                    <h3>Internship</h3>
+                    <img src="img/inti1.jpg" alt="Sertifikat Proyek 1">
+                    <p>-</p>
+                </div>
+
+                <!-- Sertifikat Kursus & Pelatihan -->
+                <div class="slide">
+                    <h3>Learning Achievements </h3>
+                    <img src="img/learning1.jpg" alt="Sertifikat Kursus 1">
+                    <p></p>
+                </div>
+
+                <!-- Sertifikat Webinar & Acara -->
+                <div class="slide">
+                    <h3>Learning Achievements</h3>
+                    <img src="img/learning2.jpg" alt="Sertifikat Webinar 1">
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- Tombol Navigasi -->
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    
+    
+
     <script>
         function toggleMenu() {
             const navbar = document.getElementById('navbar');
@@ -40,6 +78,15 @@
                 navbar.classList.remove('active');
             }
         });
+
+        let slideIndex = 0;
+
+        function moveSlide(n) {
+            const slides = document.querySelector('.slider');
+            const totalSlides = document.querySelectorAll('.slide').length;
+            slideIndex = (slideIndex + n + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+        }
     </script>
  </body>
  </html>
