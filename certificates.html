@@ -1,0 +1,45 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertifikatku</title>
+    <link rel="stylesheet" href="css/sertifikat.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+ </head>
+ <body>
+    <header>
+        <button id="menuBtn" onclick="toggleMenu()" aria-label="Toggle Menu">
+            ☰
+        </button>
+
+        <nav id="navbar">
+            <!-- Menu items akan berada di sini -->
+            <ul id="menuItems">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="certificates.html" class="active">Sertifikat</a></li>
+                <li><a href="kontak.html">Saran</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('active');
+        }
+
+        // Menutup menu jika klik di luar navbar
+        document.addEventListener('click', function(event) {
+            const navbar = document.getElementById('navbar');
+            const menuButton = document.getElementById('menuBtn');
+
+            // Jika klik di luar tombol menu dan navbar
+            if (!navbar.contains(event.target) && !menuButton.contains(event.target)) {
+                navbar.classList.remove('active');
+            }
+        });
+    </script>
+ </body>
+ </html>

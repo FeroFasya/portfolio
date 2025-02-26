@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layouting</title>
+    <style>
+
+        * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 1000px;
+        }
+        h1 {
+            background-color: moccasin;
+
+        }
+
+        a {
+            background-color: transparent;
+            display: inline-block;
+            width: ;
+            height: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            margin: 10px 5px 5px 5px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            border: solid 1px white;
+            
+        }
+
+        .kotak1 {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            position: static;
+            z-index: 2;
+            
+        }
+
+        .kotak2 {
+            background-color: rgb(5, 126, 255);
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            position: fixed;
+            /* margin: -50px 90px 90px -60px; */
+            /* transition: 2s; */
+            border: 5px solid black
+        }
+
+        .kotak2:hover {
+            /* margin: 20px 90px 90px 0px; */
+        }
+
+        .navko {
+            background-color: red;
+            width: 100%;
+            height: 50px;
+            position: fixed;
+            z-index: 1;
+          
+        }
+
+        .iklan {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 100px;
+            z-index: 2;
+        }
+
+        .x {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="iklan">
+        <div class="x">x</div>
+    </div>
+    <div class="navko">
+        <a href="">Home</a>
+        <a href="">About</a>
+        <a href="">Service</a>
+        <a href="">Project</a>
+        <a href="">Contact</a>
+    </div>
+    <h1>Haii Aiko</h1>
+    
+
+    <div class="kotak1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe accusamus rerum nemo ipsum aut obcaecati similique temporibus, facere corporis, quam alias. Maiores doloremque totam odit laudantium esse pariatur porro a.</div>
+    <div class="kotak2"></div>
+</body>
+</html>
