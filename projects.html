@@ -218,11 +218,11 @@
         
     
         .separator {
+            display: block;
+            margin: 30px 0; /* atas & bawah: 20px, kiri & kanan: 0 */
             border: none;
-            border-top: 2px solid #00bcd4; /* Warna pink */
-            margin: 50px auto; /* Jarak atas-bawah */
-            width: 50%; /* Lebar garis */
         }
+
     
         /* Testimonials Section */
         #testimonials {
@@ -235,6 +235,7 @@
             font-size: 2em;
             text-align: center;
             margin-bottom: 30px;
+            
         }
 
         .testimonial {
@@ -264,7 +265,7 @@
         .software-list, .software2-list {
             display: flex;
             justify-content: center;
-            gap: 30px; /* Jarak antar ikon */
+            gap: 10px; /* Jarak antar ikon */
             flex-wrap: wrap; /* Membuat responsif dan tata letak flex melipat jika lebar layar kecil */
             margin-bottom: 40px;
         }
@@ -274,7 +275,7 @@
             text-align: center;
             flex: 1 1 calc(33.33% - 20px); /* Setiap card menggunakan 33% space dari container */
             max-width: 120px; /* Maksimum lebar kartu */
-            background-color: #fff;
+            background-color: transparent;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -321,13 +322,13 @@
         
 
     
-        /* Footer */
         footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 50px;
-            background-color: #111;
+            background: linear-gradient(to right, #111, #0d4951,#841c3e, #111);
+            border-radius: 5px;
         }
     
         .social-icons a {
@@ -445,13 +446,13 @@
             }
     
             /* Software section */
-            #software .software-list {
+            #software .software-liskt {
                 flex-direction: column;
                 align-items: center;
             }
     
             #software .software-card {
-                width: 80%;
+                width: 50%;
                 margin-bottom: 20px;
             }
     
@@ -644,7 +645,7 @@
             </div>
         </div>
     
-        <hr class="separator">
+        
         <h3>For Editing</h3>
     
         <div class="software2-list">
@@ -668,6 +669,8 @@
             </div>
         </div>
     </section>
+    
+    <hr class="separator">
     
     
 

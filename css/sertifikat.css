@@ -51,6 +51,7 @@
             transform: translateX(-100%); /* Sembunyiin navbar */
             transition: transform 0.4s ease-in-out, opacity 0.4s ease;
             opacity: 0;
+            z-index: 99;
         }
 
         /* Ketika menu aktif */
@@ -172,6 +173,26 @@
             background: #222;
             border-radius: 8px;
         }
+
+        .slider-container3 {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+        }
+    
+        .slider3 {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+    
+        .slide3 {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            background: #222;
+            border-radius: 8px;
+        }
     
         img {
             max-width: 100%;
@@ -200,26 +221,41 @@
         .prev { left: 0; }
         .next { right: 0; }
 
-        .prev2, .next2 {
-            position: absolute;
-            top: 7%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 188, 212, 0.4);
-            color: rgb(251, 251, 251);
-            border: none;
-            padding: 18px;
-            cursor: pointer;
-            font-size: 17px;
-            border-radius: 3px;
+        
+
+        /* Divider */
+        .divider {
+            width: 100%;
+            height: 2px;
+            background-image: linear-gradient(to right, #000000, #efe7ea);
+            margin: 50px 0;
+            align-items: center;
         }
 
-        .prev2:hover, .next2:hover {
-            background-color: #00bcd4;
-            color: rgb(0, 0, 0);
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(to right, #111, #0d4951,#841c3e, #111);
+            border-radius: 5px;
         }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        .social-icons a:hover {
+            color: #00bcd4;
+        }
+
+        
     
-        .prev2 { left: 0; }
-        .next2 { right: 0; }
+        
 
 
         

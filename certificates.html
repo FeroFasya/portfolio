@@ -58,29 +58,35 @@
             <button class="next" onclick="moveSlide(1)">&#10095;</button>
         </div>
 
-        <br>
+        <div class="divider"></div>
 
         <div class="slider-container2">
             <div class="slider2">
                 <!-- Sertifikat Proyek & Keahlian -->
                 <div class="slide2">
                     <h3>Learning Achievements</h3>
-                    <img src="img/learning1.jpg" alt="Sertifikat Proyek 1">
+                    <img src="img/learning1.jpg" alt="kamu lucu">
                     <p>Dicoding Class Belajar Dasar AI</p>
                 </div>
 
-                <!-- Sertifikat Kursus & Pelatihan -->
+                
                 <div class="slide2">
                     <h3>Learning Achievements </h3>
                     <img src="img/learning2.jpg" alt="Sertifikat Kursus 1">
                     <p>Dicoding Class Belajar Data Sciene</p>
                 </div>
 
-                <!-- Sertifikat Webinar & Acara -->
+                
                 <div class="slide2">
                     <h3>Learning Achievements</h3>
-                    <img src="img/learning2.jpg" alt="Sertifikat Webinar 1">
-                    <p></p>
+                    <img src="img/learning3.jpg" alt="ilyshs">
+                    <p>Oracle Academy - Database Foundations</p>
+                </div>
+
+                <div class="slide2">
+                    <h3>Learning Achievements</h3>
+                    <img src="img/learning4.jpg" alt="aashbshb">
+                    <p>Oracle Academy - Java Foundations</p>
                 </div>
             </div>
 
@@ -88,10 +94,51 @@
             <button class="prev" onclick="moveSlide2(-1)">&#10094;</button>
             <button class="next" onclick="moveSlide2(1)">&#10095;</button>
         </div>
+
+        <div class="divider"></div>
+
+        <div class="slider-container3">
+            <div class="slider3">
+                <!-- Sertifikat Proyek & Keahlian -->
+                <div class="slide3">
+                    <h3>Event</h3>
+                    <img src="img/event1.jpg" alt="tau gak?">
+                    <p>Webinar Membuat aplikasi To-Do List</p>
+                </div>
+
+                <!-- Sertifikat Kursus & Pelatihan -->
+                <div class="slide3">
+                    <h3>Event</h3>
+                    <img src="img/event2.jpg" alt="sygshf">
+                    <p>-</p>
+                </div>
+
+                <!-- Sertifikat Webinar & Acara -->
+                <div class="slide3">
+                    <h3>Event</h3>
+                    <img src="img/event2.jpg" alt="lovyu">
+                    <p>-</p>
+                </div>
+            </div>
+
+            <!-- Tombol Navigasi -->
+            <button class="prev" onclick="moveSlide3(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide3(1)">&#10095;</button>
+        </div>
     </section>
 
     
-    
+   
+
+
+    <footer>
+        <div>&copy; 2024 FeroFasya</div>
+        <div class="social-icons">
+            <a href="https://www.tiktok.com/@ferdailyyy">Tiktok</a>
+            <a href="https://www.youtube.com/@FerDaily">Youtube</a>
+            <a href="https://www.instagram.com/ferogaaa">Instagram</a>
+        </div>
+    </footer>
 
     <script>
         function toggleMenu() {
@@ -122,6 +169,13 @@
         function moveSlide2(n) {
             const slides = document.querySelector('.slider2');
             const totalSlides = document.querySelectorAll('.slide2').length;
+            slideIndex = (slideIndex + n + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+        }
+
+        function moveSlide3(n) {
+            const slides = document.querySelector('.slider3');
+            const totalSlides = document.querySelectorAll('.slide3').length;
             slideIndex = (slideIndex + n + totalSlides) % totalSlides;
             slides.style.transform = `translateX(${-slideIndex * 100}%)`;
         }

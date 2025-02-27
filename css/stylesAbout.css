@@ -255,7 +255,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 50px;
-            background-color: #111;
+            background: linear-gradient(to right, #111, #0d4951,#841c3e, #111);
+            border-radius: 5px;
         }
 
         .social-icons a {
@@ -291,10 +292,8 @@
             .navbar-toggler {
                 display: block;
             }
-            footer {
-                padding: 15px;
-                text-align: center;
-            }
+
+            
 
             /* Button Menu */
             #menuBtn {
