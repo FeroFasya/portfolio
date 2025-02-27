@@ -35,20 +35,20 @@
                 <div class="slide">
                     <h3>Internship</h3>
                     <img src="img/inti1.jpg" alt="Sertifikat Proyek 1">
-                    <p>-</p>
+                    <p>Certificate of completion for website development internship project.</p>
                 </div>
 
                 <!-- Sertifikat Kursus & Pelatihan -->
                 <div class="slide">
-                    <h3>Learning Achievements </h3>
-                    <img src="img/learning1.jpg" alt="Sertifikat Kursus 1">
+                    <h3>Internship</h3>
+                    <img src="img/inti2.jpg" alt="belum ada hehe">
                     <p></p>
                 </div>
 
                 <!-- Sertifikat Webinar & Acara -->
                 <div class="slide">
-                    <h3>Learning Achievements</h3>
-                    <img src="img/learning2.jpg" alt="Sertifikat Webinar 1">
+                    <h3>Internship</h3>
+                    <img src="img/inti3.jpg" alt="ku sedang meraih itu :>">
                     <p></p>
                 </div>
             </div>
@@ -56,6 +56,37 @@
             <!-- Tombol Navigasi -->
             <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
             <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <br>
+
+        <div class="slider-container2">
+            <div class="slider2">
+                <!-- Sertifikat Proyek & Keahlian -->
+                <div class="slide2">
+                    <h3>Learning Achievements</h3>
+                    <img src="img/learning1.jpg" alt="Sertifikat Proyek 1">
+                    <p>Dicoding Class Belajar Dasar AI</p>
+                </div>
+
+                <!-- Sertifikat Kursus & Pelatihan -->
+                <div class="slide2">
+                    <h3>Learning Achievements </h3>
+                    <img src="img/learning2.jpg" alt="Sertifikat Kursus 1">
+                    <p>Dicoding Class Belajar Data Sciene</p>
+                </div>
+
+                <!-- Sertifikat Webinar & Acara -->
+                <div class="slide2">
+                    <h3>Learning Achievements</h3>
+                    <img src="img/learning2.jpg" alt="Sertifikat Webinar 1">
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- Tombol Navigasi -->
+            <button class="prev" onclick="moveSlide2(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide2(1)">&#10095;</button>
         </div>
     </section>
 
@@ -84,6 +115,13 @@
         function moveSlide(n) {
             const slides = document.querySelector('.slider');
             const totalSlides = document.querySelectorAll('.slide').length;
+            slideIndex = (slideIndex + n + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+        }
+
+        function moveSlide2(n) {
+            const slides = document.querySelector('.slider2');
+            const totalSlides = document.querySelectorAll('.slide2').length;
             slideIndex = (slideIndex + n + totalSlides) % totalSlides;
             slides.style.transform = `translateX(${-slideIndex * 100}%)`;
         }
