@@ -136,6 +136,17 @@
         </div>
     </section>
 
+    
+   
+
+
+    <footer>
+        <div>&copy; 2025 FeroFasya</div>
+        <div class="social-icons">
+            <a href="https://wa.me/628815750989" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    </footer>
+
     <script>
         function toggleMenu() {
             const navbar = document.getElementById('navbar');
@@ -219,31 +230,6 @@
             isDragging = false;
             container.style.cursor = 'grab';
         });
-
-        // Loading screen
-        function showLoading(event) {
-            event.preventDefault(); // Biar ga langsung pindah halaman
-            const targetUrl = event.currentTarget.getAttribute('href'); // Dapatkan link tujuan
-
-            // Tampilkan loading screen
-            document.getElementById('loading-screen').style.display = 'flex';
-
-            // Pindah halaman setelah animasi loading (misal 3 detik)
-            setTimeout(() => {
-                window.location.href = targetUrl; // Arahkan ke halaman tujuan
-            }, 1500); // 3 detik
-        }
     </script>
-   
-
-
-    <footer>
-        <div>&copy; 2025 FeroFasya</div>
-        <div class="social-icons">
-            <a href="https://wa.me/628815750989" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        </div>
-    </footer>
-
-    
  </body>
  </html>
