@@ -162,6 +162,45 @@
             color: #ff80ab;
         }
 
+        #loading-screen {
+            display: none; /* Awalnya tersembunyi */
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #111;
+            z-index: 9999;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        #loading-screen img {
+            width: 200px; /* Ukuran GIF */
+            /* animation: spin 2s linear infinite; Contoh animasi muter */
+        }
+        
+        /* Animasi fade in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Animasi muter */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
        
 
         
@@ -458,26 +497,26 @@
 </head>
 <body>
     <header>
-        <button id="menuBtn" onclick="toggleMenu()" aria-label="Toggle Menu">
-            ☰
-        </button>
         
+        <button id="menuBtn" onclick="toggleMenu()" aria-label="Toggle Menu">☰</button>
+    
         <nav id="navbar">
-            <!-- Menu items akan berada di sini -->
             <ul id="menuItems">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="certificates.html">Sertifikat</a></li>
-                <li><a href="kontak.html" class="active">Saran</a></li>
+                <li><a href="index.html" onclick="showLoading(event)">Home</a></li>
+                <li><a href="about.html" onclick="showLoading(event)">About</a></li>
+                <li><a href="projects.html" onclick="showLoading(event)">Projects</a></li>
+                <li><a href="certificates.html" onclick="showLoading(event)">Sertifikat</a></li>
+                <li><a href="kontak.html" class="active" onclick="showLoading(event)">Saran</a></li>
             </ul>
         </nav>
     </header>
 
-    <a href="#contact" id="container">
+    <a href="#contact" onclick="showLoading(event)" id="container">
         <img src="img/kurumi3.gif" alt="Fasya">
         <p id="text">Hire me</p>
     </a>
+
+    
 
     <section id="hero">
         <div class="intro">
@@ -609,6 +648,20 @@
             isDragging = false;
             container.style.cursor = 'grab';
         });
+
+        // Loading screen
+        // function showLoading(event) {
+        //     event.preventDefault(); // Biar ga langsung pindah halaman
+        //     const targetUrl = event.currentTarget.getAttribute('href'); // Dapatkan link tujuan
+
+        //     // Tampilkan loading screen
+        //     document.getElementById('loading-screen').style.display = 'flex';
+
+        //     // Pindah halaman setelah animasi loading (misal 3 detik)
+        //     setTimeout(() => {
+        //         window.location.href = targetUrl; // Arahkan ke halaman tujuan
+        //     }, 1500); // 3 detik
+        //}
     </script>
 </body>
 </html>

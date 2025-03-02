@@ -13,29 +13,30 @@
 <body>
     <header>
         <h3>*Note: Klik Kurumi-Chan untuk ke halaman selanjutnya</h3>
-        <button id="menuBtn" onclick="toggleMenu()" aria-label="Toggle Menu">
-            ☰
-        </button>
-        
+        <button id="menuBtn" onclick="toggleMenu()" aria-label="Toggle Menu">☰</button>
+    
         <nav id="navbar">
-            <!-- Menu items akan berada di sini -->
             <ul id="menuItems">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="certificates.html">Sertifikat</a></li>
-                <li><a href="kontak.html">Saran</a></li>
+                <li><a href="index.html" class="active" onclick="showLoading(event)">Home</a></li>
+                <li><a href="about.html" onclick="showLoading(event)">About</a></li>
+                <li><a href="projects.html" onclick="showLoading(event)">Projects</a></li>
+                <li><a href="certificates.html" onclick="showLoading(event)">Sertifikat</a></li>
+                <li><a href="kontak.html" onclick="showLoading(event)">Saran</a></li>
             </ul>
         </nav>
     </header>
-
     
-
-
-    <a href="about.html" id="container">
+    <!-- Dragable Image -->
+    <a href="about.html" onclick="showLoading(event)" id="container">
         <img src="img/kurumi.gif" alt="Fasya">
         <p id="text">next?</p>
     </a>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <img src="img/kurumi5.gif" alt="Loading..." />
+    </div>
+    
     
 
 
@@ -220,6 +221,23 @@
             isDragging = false;
             container.style.cursor = 'grab';
         });
+
+
+        // Loading screen
+        function showLoading(event) {
+            event.preventDefault(); // Biar ga langsung pindah halaman
+            const targetUrl = event.currentTarget.getAttribute('href'); // Dapatkan link tujuan
+
+            // Tampilkan loading screen
+            document.getElementById('loading-screen').style.display = 'flex';
+
+            // Pindah halaman setelah animasi loading (misal 3 detik)
+            setTimeout(() => {
+                window.location.href = targetUrl; // Arahkan ke halaman tujuan
+            }, 1500); // 3 detik
+        }
+
+
     </script>  
 </body>
 </html>

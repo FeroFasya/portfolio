@@ -156,6 +156,45 @@
             color: #ff80ab;
         }
 
+        #loading-screen {
+            display: none; /* Awalnya tersembunyi */
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #111;
+            z-index: 9999;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        #loading-screen img {
+            width: 200px; /* Ukuran GIF */
+            /* animation: spin 2s linear infinite; Contoh animasi muter */
+        }
+        
+        /* Animasi fade in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Animasi muter */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
         .certificates-section {
             text-align: center;
             padding: 50px 20px;
