@@ -120,6 +120,41 @@
             box-shadow: 0 4px 10px rgba(0, 188, 212, 0.4);
         }
 
+        #container {
+            position: fixed;
+            top: 15%;
+            left: 15%;
+            transform: translate(-50%, -50%);
+            cursor: grab;
+            touch-action: none;
+            display: flex;
+            flex-direction: column; /* Biar elemen tersusun vertikal */
+            align-items: center; /* Tengahin gambar dan teks */
+            text-decoration: none;
+            z-index: 9999999;
+        }
+        
+        #container img {
+            width: 130px;
+            border-radius: 10px;
+            margin-bottom: 10px; /* Jarak antara gambar & teks */
+        }
+
+        #container img:hover {
+            transform: scale(1.1); /* Perbesar gambar saat hover */
+        }
+        
+        #text {
+            font-size: 18px;
+            color: #00bcd4;
+            margin: 0;
+            font-weight: bold;
+            font-family: "Comic Sans MS", cursive;
+        }
+
+        #text:hover {
+            color: #ff80ab;
+        }
 
         .certificates-section {
             text-align: center;

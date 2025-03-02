@@ -52,6 +52,7 @@
             transform: translateX(-100%); /* Sembunyiin navbar */
             transition: transform 0.4s ease-in-out, opacity 0.4s ease;
             opacity: 0;
+            z-index: 99;
         }
 
         /* Ketika menu aktif */
@@ -83,7 +84,7 @@
             flex-direction: column;
             gap: 10px;
             background-color: transparent;
-
+            
         }
 
         /* Desain untuk tiap <li> */
@@ -118,8 +119,43 @@
             color: rgb(0, 0, 0);
             font-weight: bold;
             box-shadow: 0 4px 10px rgba(0, 188, 212, 0.4);
+
         }
 
+        #container {
+            position: fixed;
+            top: 85%;
+            right: 5%;
+            transform: translate(-50%, -50%);
+            cursor: grab;
+            touch-action: none;
+            display: flex;
+            flex-direction: column; /* Biar elemen tersusun vertikal */
+            align-items: center; /* Tengahin gambar dan teks */
+            text-decoration: none;
+        }
+        
+        #container img {
+            width: 130px;
+            border-radius: 10px;
+            margin-bottom: 10px; /* Jarak antara gambar & teks */
+        }
+
+        #container img:hover {
+            transform: scale(1.1); /* Perbesar gambar saat hover */
+        }
+        
+        #text {
+            font-size: 18px;
+            color: #00bcd4;
+            margin: 0;
+            font-weight: bold;
+            font-family: "Comic Sans MS", cursive;
+        }
+
+        #text:hover {
+            color: #ff80ab;
+        }
        
 
 
@@ -163,6 +199,7 @@
         #about:hover {
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Efek bayangan lebih menonjol saat hover */
             transform: scale(1.05); /* Membesarkan sedikit ketika di-hover */
+            z-index: 2;
         }
 
         /* Divider */

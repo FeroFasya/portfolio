@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <title>Home - Portofolioku</title>
 </head>
 <body>
     <header>
+        <h3>*Note: Klik Kurumi-Chan untuk ke halaman selanjutnya</h3>
         <button id="menuBtn" onclick="toggleMenu()" aria-label="Toggle Menu">
             ☰
         </button>
@@ -24,6 +28,16 @@
             </ul>
         </nav>
     </header>
+
+    
+
+
+    <a href="about.html" id="container">
+        <img src="img/kurumi.gif" alt="Fasya">
+        <p id="text">next?</p>
+    </a>
+    
+
 
 
     <section id="hero">
@@ -77,13 +91,14 @@
     <br>
 
     <footer>
-        <div>&copy; 2024 FeroFasya</div>
+        <div class="footer-left">&copy; 2025 FeroFasya </div>
+    
         <div class="social-icons">
-            <a href="https://www.tiktok.com/@ferdailyyy">Tiktok</a>
-            <a href="https://www.youtube.com/@FerDaily">Youtube</a>
-            <a href="https://www.instagram.com/ferogaaa">Instagram</a>
+            <a href="https://github.com/ferofasya" target="_blank"><i class="fab fa-github"></i> GitHub </a>
+            <a href="https://www.instagram.com/ferogaaa" target="_blank"><i class="fab fa-instagram"></i> Instagram </a>
         </div>
     </footer>
+    
     <script>
         const popupContainer = document.getElementById('popup');
         const popupText = document.getElementById('popupText');
@@ -120,8 +135,8 @@
             document.getElementById('htmlSlider'), 
             document.getElementById('htmlPercent'), 
             60, 
-            'Makasih udah naikin skill HTML/CSS-ku!', 
-            'Kenapa kamu turunin skill HTML/CSS-ku?', 
+            'Makasih udah naikin skill ku!', 
+            'Kenapa kamu turunin skill ku?', 
             'img/seneng.png', 
             'img/kesel.png'
         );
@@ -130,8 +145,8 @@
             document.getElementById('videoSlider'), 
             document.getElementById('videoPercent'), 
             65, 
-            'Makasih udah naikin skill Video Editing-ku!', 
-            'Kenapa kamu turunin skill Video Editing-ku?', 
+            'Aku beneran bisa ngedit kok!', 
+            'ohh gak percaya?', 
             'img/seneng.png', 
             'img/kesel.png'
         );
@@ -140,8 +155,8 @@
             document.getElementById('backendSlider'), 
             document.getElementById('backendPercent'), 
             20, 
-            'Makasih udah naikin skill Backend Development-ku!', 
-            'Kenapa kamu turunin skill Backend Development-ku?', 
+            'Alhamdulillah, makasih ya!', 
+            'Udah jelek nambah jelek heuheu...', 
             'img/seneng.png', 
             'img/kesel.png'
         );
@@ -162,6 +177,49 @@
             }
         });
 
-    </script>
+        // Dragging container
+        const container = document.getElementById('container');
+        let offsetX = 0, offsetY = 0, isDragging = false;
+
+        // Untuk mouse
+        container.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            offsetX = e.clientX - container.getBoundingClientRect().left;
+            offsetY = e.clientY - container.getBoundingClientRect().top;
+            container.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            container.style.left = `${e.clientX - offsetX}px`;
+            container.style.top = `${e.clientY - offsetY}px`;
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            container.style.cursor = 'grab';
+        });
+
+        // Untuk touchscreen
+        container.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            const touch = e.touches[0];
+            offsetX = touch.clientX - container.getBoundingClientRect().left;
+            offsetY = touch.clientY - container.getBoundingClientRect().top;
+            container.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const touch = e.touches[0];
+            container.style.left = `${touch.clientX - offsetX}px`;
+            container.style.top = `${touch.clientY - offsetY}px`;
+        });
+
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+            container.style.cursor = 'grab';
+        });
+    </script>  
 </body>
 </html>

@@ -18,7 +18,7 @@
             justify-content: space-between; /* Menu kiri, tombol kanan */
             align-items: center;
             padding: 20px 50px;
-            background-color: #111;
+            background-color: transparent;
             position: relative;
             order: 2;
             z-index: 1000;
@@ -85,12 +85,16 @@
             flex-direction: column;
             gap: 10px;
             background-color: transparent;
+            
+            
 
         }
 
         /* Desain untuk tiap <li> */
         #menuItems li {
             width: 100%;
+            
+            
         }
 
         /* Desain untuk tautan <a> */
@@ -101,7 +105,7 @@
             color: #fff;
             font-size: 18px;
             background-color: #111;
-            border-radius: 4px;
+            border-radius: 5px;
             transition: all 0.3s ease-in-out;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
@@ -122,6 +126,53 @@
             box-shadow: 0 4px 10px rgba(0, 188, 212, 0.4);
         }
 
+
+        #container {
+            position: fixed;
+            top: 70%;
+            left: 15%;
+            transform: translate(-50%, -50%);
+            cursor: grab;
+            touch-action: none;
+            display: flex;
+            flex-direction: column; /* Biar elemen tersusun vertikal */
+            align-items: center; /* Tengahin gambar dan teks */
+            text-decoration: none;
+        }
+        
+        #container img {
+            width: 130px;
+            border-radius: 10px;
+            margin-bottom: 10px; /* Jarak antara gambar & teks */
+        }
+
+        #container img:hover {
+            transform: scale(1.1); /* Perbesar gambar saat hover */
+        }
+        
+        #text {
+            font-size: 18px;
+            color: #00bcd4;
+            margin: 0;
+            font-weight: bold;
+            font-family: "Comic Sans MS", cursive;
+        }
+
+        #text:hover {
+            color: #ff80ab;
+        }
+
+        header h3 {
+            font-size: 8px;
+            font-weight: 300; /* Bikin teks tipis */
+            font-style: italic; /* Bikin teks miring */
+            opacity: 0.5; /* Bikin teks agak transparan (0 = hilang, 1 = full terlihat) */
+            margin: 0; /* Biar ga ada jarak default */
+        }
+        
+        
+
+        
         
 
     
@@ -242,20 +293,21 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 50px;
-            background: linear-gradient(to right, #111, #0d4951,#841c3e, #111);
+            background: linear-gradient(to right, #111, #0d4951, #841c3e, #111);
             border-radius: 5px;
         }
-
+        
         .social-icons a {
             color: #ffeeee;
             text-decoration: none;
             margin-left: 20px;
             font-size: 16px;
         }
-
+        
         .social-icons a:hover {
             color: #00bcd4;
         }
+        
 
         .divider {
             width: 100%;
