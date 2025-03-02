@@ -170,7 +170,7 @@
             margin: 0; /* Biar ga ada jarak default */
         }
 
-#loading-screen {
+        #loading-screen {
             display: none; /* Awalnya tersembunyi */
             justify-content: center;
             align-items: center;
