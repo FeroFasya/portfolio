@@ -59,28 +59,33 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills-section">
-        <h3>Skills</h3>
-        <!-- HTML/CSS Slider -->
-        <div class="skill-container">
-            <p>HTML/CSS</p>
-            <input type="range" min="0" max="100" value="60" id="htmlSlider">
-            <span id="htmlPercent">60%</span>
+    <section id="skills-section" style="background: #111; padding: 2rem; border-radius: 12px; color: #fff; max-width: 1000px; margin: auto;">
+        <h3 style="font-size: 2rem; text-align: center; margin-bottom: 2rem; color: #00bcd4; font-weight: 600;">Skills</h3>
+        
+        <div class="skill-container" style="margin-bottom: 2rem;">
+            <p style="margin-bottom: .5rem; font-weight: 500;">HTML/CSS</p>
+            <div style="display: flex; flex-direction: column; gap: .5rem;">
+                <input type="range" min="0" max="100" value="60" id="htmlSlider" style="width: 100%; accent-color: #00bcd4;">
+                <span id="htmlPercent" style="text-align: right;">60%</span>
+            </div>
         </div>
-        <!-- Video Editing Slider -->
-        <div class="skill-container">
-            <p>Video Editing</p>
-            <input type="range" min="0" max="100" value="65" id="videoSlider">
-            <span id="videoPercent">65%</span>
+    
+        <div class="skill-container" style="margin-bottom: 2rem;">
+            <p style="margin-bottom: .5rem; font-weight: 500;">Video Editing</p>
+            <div style="display: flex; flex-direction: column; gap: .5rem;">
+                <input type="range" min="0" max="100" value="65" id="videoSlider" style="width: 100%; accent-color: #00bcd4;">
+                <span id="videoPercent" style="text-align: right;">65%</span>
+            </div>
         </div>
-        <!-- Backend Development Slider -->
-        <div class="skill-container">
-            <p>Backend Development</p>
-            <input type="range" min="0" max="100" value="20" id="backendSlider">
-            <span id="backendPercent">20%</span>
+    
+        <div class="skill-container" style="margin-bottom: 2rem;">
+            <p style="margin-bottom: .5rem; font-weight: 500;">Backend Development</p>
+            <div style="display: flex; flex-direction: column; gap: .5rem;">
+                <input type="range" min="0" max="100" value="20" id="backendSlider" style="width: 100%; accent-color: #00bcd4;">
+                <span id="backendPercent" style="text-align: right;">20%</span>
+            </div>
         </div>
     </section>
-
     <!-- Popup Section -->
     <div id="popup">
         <p id="popupText">Placeholder Text</p>

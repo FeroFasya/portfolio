@@ -34,7 +34,7 @@
         }
 
         #menuBtn:hover {
-            color: #00bcd4; /* Warna saat hover */
+            color: #f4c542; /* Warna saat hover */
             transform: scale(1.1); /* Memberikan efek perbesaran */
         }
 
@@ -108,7 +108,7 @@
 
         /* Efek saat hover */
         #menuItems a:hover {
-            background-color: #00bcd4; /* Warna saat hover */
+            background-color: #f4c542; /* Warna saat hover */
             color: rgb(0, 0, 0);
             transform: translateX(10px); /* Menambah efek geser */
         }
