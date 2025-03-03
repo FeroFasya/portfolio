@@ -273,11 +273,11 @@
 
 
         #skills, #testimonials {
-            background: #121212;
+            background: #111;
             padding: 3rem 1.5rem;
             color: #fff;
             text-align: left;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 2rem auto;
             border-radius: 10px;
         }
@@ -322,9 +322,10 @@
         @media (max-width: 768px) {
             #skills, #testimonials {
                 padding: 2rem 1rem;
+                max-width:350px;
             }
             #skills h3, #testimonials h3 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
             .skill-list li {
                 font-size: 0.8rem;

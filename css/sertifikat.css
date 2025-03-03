@@ -205,7 +205,7 @@
     
         .slider-container {
             position: relative;
-            max-width: 800px;
+            max-width: 500px;
             margin: auto;
             overflow: hidden;
         }
@@ -225,7 +225,7 @@
             min-width: 100%;
             box-sizing: border-box;
             padding: 20px;
-            background: #222;
+            background: #111;
             border-radius: 8px;
         }
 
@@ -245,7 +245,7 @@
             min-width: 100%;
             box-sizing: border-box;
             padding: 20px;
-            background: #222;
+            background: #111;
             border-radius: 8px;
         }
 
@@ -265,7 +265,7 @@
             min-width: 100%;
             box-sizing: border-box;
             padding: 20px;
-            background: #222;
+            background: #111;
             border-radius: 8px;
         }
     
@@ -279,7 +279,7 @@
             
             top: 7%;
             transform: translateY(-50%);
-            background-color: rgba(0, 188, 212, 0.4);
+            background-color: rgba(255, 255, 255, 0);
             color: rgb(251, 251, 251);
             border: none;
             padding: 18px;
