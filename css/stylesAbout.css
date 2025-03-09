@@ -304,21 +304,7 @@
             color: #f4c542;
             transform: translateX(8px);
         }
-        .testimonial-container {
-            display: flex;
-            gap: 1rem;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        .testimonial img {
-            max-width: 50%;
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-        .testimonial img:hover {
-            transform: scale(1.05);
-        }
+        
         @media (max-width: 768px) {
             #skills, #testimonials {
                 padding: 2rem 1rem;
