@@ -129,9 +129,9 @@
 
         #container {
             position: fixed;
-            top: 70%;
-            left: 15%;
-            transform: translate(-50%, -50%);
+            top: 63%;
+            left: 5%;
+    
             cursor: grab;
             touch-action: none;
             display: flex;
