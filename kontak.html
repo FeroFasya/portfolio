@@ -592,6 +592,7 @@
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Mencegah form dari pengiriman default
 
+            const name = event.target.name.value; // Ambil nama dari form
             const message = event.target.message.value;
 
             // Buat elemen baru untuk saran
@@ -604,7 +605,8 @@
 
             // Tampilkan popup WhatsApp
             const whatsappLink = document.getElementById('whatsappLink');
-            whatsappLink.href = `https://wa.me/628815750989?text=Saran%20apa%20untukku%F0%9F%A5%B0${encodeURIComponent(message)}`; // Ganti 'nomor_wa_kamu' dengan nomor WhatsApp kamu
+            whatsappLink.href = `https://wa.me/628815750989?text=Haii,%20aku%20${encodeURIComponent(name)},%20${encodeURIComponent(message)}`; 
+
             document.getElementById('whatsappPopup').style.display = 'flex';
 
             // Reset form
