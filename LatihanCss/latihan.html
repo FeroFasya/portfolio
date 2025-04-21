@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 3-CSS dasar</title>
+    <style>
+        p {
+            color: blueviolet;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+        } 
+        .wantDiferent {
+            color: red;
+        }
+        #p3 {
+            color: green;
+        }
+
+        ol li a {
+            text-decoration: none;
+            color: red;
+        }
+
+        h3 {
+            color:hotpink
+        }
+
+        h3 span {
+            color:rgb(66, 185, 249)
+        }
+
+        .when {
+            color: rgba(171, 47, 233, 0.779);
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .when:hover {
+            color:rgb(240, 249, 66);
+            font-size: 35px;
+        }
+
+        ul li a:hover {
+            text-decoration: none;
+            background-color: rgb(66, 185, 249);
+            color:black
+
+        }
+
+        ol li a:hover {
+            text-decoration: none;
+            background-color: rgb(66, 185, 249);
+            color:black
+        }
+
+        .kotak {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(66, 185, 249);
+            margin: auto;
+            display: flex;
+
+        }
+
+        .kotak:hover {
+            background-color: rgb(249, 66, 66);
+            border-radius: 50%;
+            transform: rotate(360deg);
+            transition: 1s;
+        }
+
+        .kotak-kecil {
+            
+            width: 75px;
+            height: 75px;
+            background-color: rgb(234, 66, 249);
+            margin: auto;
+            transform: rotate3d(10, 20, 35, 50deg);
+
+        }
+
+        .bulet {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(0, 0, 0);
+            margin: auto;
+            display: flex;
+            border-radius: 50%;
+        }
+
+        .bulet1 {
+            width: 75px;
+            height: 75px;
+            background-color: rgb(255, 255, 255);
+            margin: auto;
+            border-radius: 0%;
+        }
+
+        .bulet:hover {
+            background-color: rgb(255, 255, 255);
+            border-radius: 10%;
+            transform: rotate(360deg);
+            transition: 3s;
+            
+        }
+
+        .bulet1:hover {
+            background-color: rgb(0, 0, 0);
+            border-radius: 50%;
+            transform: rotateY('angle') rotateX('angle') rotateZ('angle');
+            transition: 1.5s;
+        }
+
+        .video {
+            width: 320px;
+            height: 240px;
+            margin: auto;
+            display: flex;
+            
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <!--  -->
+    <h1 style= "color: rgb(164, 96, 231);">ini apalah</h1>
+    <p>ini adalah paragraf 1</p>
+    <p class="wantDiferent">ini adalah paragraf 2</p>
+    <p id="p3">ini adalah paragraf 3</p>
+    <p></p>
+    <h3><span>aku sayang </span> aiko </h3>
+    <ul>
+        <li><a href="">aiko 1</a></li>
+        <li><a href="">aiko 2</a></li>
+        <li><a href="">aiko 3</a></li>
+        <li><a href="">aiko 4</a></li>
+        <li><a href="">aiko 5</a></li>
+    </ul>
+
+    <a href="">noy</a>
+
+    <ol>
+        <li><a href="">aiko 1</a></li>
+        <li><a href="">aiko 2</a></li>
+        <li><a href="">aiko 3</a></li>
+        <li><a href="">aiko 4</a></li>
+        <li><a href="">aiko 5</a></li>
+    </ol>
+
+    <h2 class="when">KAPAN YAHH</h2>
+
+    <div class="kotak">
+        <div class="kotak-kecil"></div>
+    </div>
+
+    <div class="bulet">
+        <div class="bulet1"></div>
+    </div>
+
+    <div class="video">
+        <video src="loly.mp4" width="320" height="240" controls></video>
+    </div>
+</body>
+</html>
+<script>
+const
+aiko = {
+    nama: "aiko",
+    umur: 2,
+    jenisKelamin: "jantan",
+    warna: "hitam",
+    suara: "meong",
+    makanan: "whiskas"
+}
+
+console.log(aiko.nama)
+console.log(aiko.umur)
+console.log(aiko.jenisKelamin)
+console.log(aiko.warna)
+console.log(aiko.suara)
+console.log(aiko.makanan)
+
+</script>

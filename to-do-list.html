@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            line-height: 1.6;
+            background-color: darkorchid;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 2rem 0;
+            color: rgb(255, 247, 247);
+        }
+
+        #todo-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #todo-input {
+            flex: 1;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(134, 22, 168);
+            transition: 0.3s;
+            border: 1px solid black;
+        }
+
+        .todo-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            background-color: rgb(141, 34, 236);
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid black;
+        }
+
+        .todo-item:hover {
+            background-color: rgb(134, 22, 168);
+        }
+
+        .done {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        .todo-teks {
+            flex: 0.9;
+            font-size: 1rem;
+            color: white;
+            min-width: 150px;
+            word-break: break-word;
+        }
+
+        .toggle-btn {
+            background-color: rgb(16, 16, 16);
+        }
+
+        .delete-btn {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To Do List</h1>
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="Add new todo" required>
+            <button type="submit">Add</button>
+        </form>
+        <ul class="todo-list"></ul>
+    </div>
+
+    <script>
+        const todoForm = document.getElementById('todo-form');
+        const todoInput = document.getElementById('todo-input');
+        const todoList = document.querySelector('.todo-list');
+    
+        // Ambil data dari localStorage saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', loadTodos);
+    
+        todoForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            addTodo();
+        });
+    
+        function addTodo() {
+            const todoText = todoInput.value.trim();
+            if (todoText === "") return;
+    
+            const todoItem = document.createElement('li');
+            todoItem.classList.add('todo-item');
+            todoItem.innerHTML = `
+                <span class="todo-teks">${todoText}</span>
+                <button class="toggle-btn">Done</button>
+                <button class="delete-btn">Delete</button>
+            `;
+    
+            todoList.appendChild(todoItem);
+            saveTodos();
+            todoInput.value = '';
+    
+            todoItem.querySelector('.toggle-btn').addEventListener('click', toggleTodo);
+            todoItem.querySelector('.delete-btn').addEventListener('click', deleteTodo);
+        }
+    
+        function toggleTodo() {
+            const todoItem = this.closest('.todo-item');
+            todoItem.classList.toggle('done');
+            saveTodos();
+        }
+    
+        function deleteTodo() {
+            this.closest('.todo-item').remove();
+            saveTodos();
+        }
+    
+        function saveTodos() {
+            const todos = [];
+            document.querySelectorAll('.todo-item').forEach(item => {
+                todos.push({
+                    text: item.querySelector('.todo-teks').textContent,
+                    done: item.classList.contains('done')
+                });
+            });
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+    
+        function loadTodos() {
+            const todos = JSON.parse(localStorage.getItem('todos')) || [];
+            todos.forEach(todo => {
+                const todoItem = document.createElement('li');
+                todoItem.classList.add('todo-item');
+                if (todo.done) todoItem.classList.add('done');
+                todoItem.innerHTML = `
+                    <span class="todo-teks">${todo.text}</span>
+                    <button class="toggle-btn">Done</button>
+                    <button class="delete-btn">Delete</button>
+                `;
+                todoList.appendChild(todoItem);
+    
+                todoItem.querySelector('.toggle-btn').addEventListener('click', toggleTodo);
+                todoItem.querySelector('.delete-btn').addEventListener('click', deleteTodo);
+            });
+        }
+    </script>
+    
+</body>
+</html>

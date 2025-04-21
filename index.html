@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <title>Home - Portofolioku</title>
+</head>
+<body>
+    <header>
+        <h3>*Note: Klik Kurumi-Chan untuk ke halaman selanjutnya</h3>
+        <button id="menuBtn" onclick="toggleMenu()" aria-label="Toggle Menu">☰</button>
+    
+        <nav id="navbar">
+            <ul id="menuItems">
+                <li><a href="index.html" class="active" onclick="showLoading(event)">Home</a></li>
+                <li><a href="about.html" onclick="showLoading(event)">About</a></li>
+                <li><a href="projects.html" onclick="showLoading(event)">Projects</a></li>
+                <li><a href="certificates.html" onclick="showLoading(event)">Sertifikat</a></li>
+                <li><a href="kontak.html" onclick="showLoading(event)">Saran</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Dragable Image -->
+    <a href="about.html" onclick="showLoading(event)" id="container">
+        <img src="img/kurumi.gif" alt="Fasya">
+        <p id="text">next?</p>
+    </a>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <img src="img/kurumi5.gif" alt="Loading..." />
+    </div>
+    
+    
+
+
+
+    <section id="hero">
+        <div class="intro">
+            <!-- Tambahan konten baru -->
+            <h1>Hi, I'm <span>Fasya</span>, a Content Creator & Web Developer!</h1>
+            <p>Kenali lebih dekat siapa aku, projek yang aku buat, dan saranmu sangat berarti!</p>
+        
+            <!-- Foto Profesional atau Ilustrasi -->
+            <img src="img/aku.jpg" alt="Foto Fasya" style="width: 150px; height: 150px; border-radius: 50%; margin: 20px 0;">
+        
+            <!-- CTA Buttons -->
+            <div style="margin: 20px 0;">
+                <a href="projects.html" class="btn" onclick="showLoading(event)">See My Work</a>
+                <a href="about.html" class="btn" onclick="showLoading(event)">About me?</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills-section" style="background: #111; padding: 2rem; border-radius: 12px; color: #fff; max-width: 1000px; margin: auto;">
+        <h3 style="font-size: 2rem; text-align: center; margin-bottom: 2rem; color: #00bcd4; font-weight: 600;">Skills</h3>
+        
+        <div class="skill-container" style="margin-bottom: 2rem;">
+            <p style="margin-bottom: .5rem; font-weight: 500;">HTML/CSS</p>
+            <div style="display: flex; flex-direction: column; gap: .5rem;">
+                <input type="range" min="0" max="100" value="60" id="htmlSlider" style="width: 100%; accent-color: #00bcd4;">
+                <span id="htmlPercent" style="text-align: right;">60%</span>
+            </div>
+        </div>
+    
+        <div class="skill-container" style="margin-bottom: 2rem;">
+            <p style="margin-bottom: .5rem; font-weight: 500;">Video Editing</p>
+            <div style="display: flex; flex-direction: column; gap: .5rem;">
+                <input type="range" min="0" max="100" value="65" id="videoSlider" style="width: 100%; accent-color: #00bcd4;">
+                <span id="videoPercent" style="text-align: right;">65%</span>
+            </div>
+        </div>
+    
+        <div class="skill-container" style="margin-bottom: 2rem;">
+            <p style="margin-bottom: .5rem; font-weight: 500;">Backend Development</p>
+            <div style="display: flex; flex-direction: column; gap: .5rem;">
+                <input type="range" min="0" max="100" value="20" id="backendSlider" style="width: 100%; accent-color: #00bcd4;">
+                <span id="backendPercent" style="text-align: right;">20%</span>
+            </div>
+        </div>
+    </section>
+    <!-- Popup Section -->
+    <div id="popup">
+        <p id="popupText">Placeholder Text</p>
+        <img id="popupImage" src="" alt="Popup Image" />
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <div class="footer-left">&copy; 2025 Kinderfer.</div>
+    
+        <div class="social-icons">
+            <a href="https://github.com/ferofasya" target="_blank"><i class="fab fa-github"></i> GitHub </a>
+            <a href="https://www.instagram.com/ferogaaa" target="_blank"><i class="fab fa-instagram"></i> Insta</a>
+        </div>
+    </footer>
+    
+    <script>
+        const popupContainer = document.getElementById('popup');
+        const popupText = document.getElementById('popupText');
+        const popupImage = document.getElementById('popupImage');
+
+        // Fungsi untuk menampilkan popup dengan gambar
+        function showPopup(message, imgSrc) {
+            popupText.innerText = message;
+            popupImage.src = imgSrc; // Ganti sumber gambar
+            popupContainer.style.display = "block";
+
+            setTimeout(() => {
+                popupContainer.style.display = "none";
+            }, 3000); // Popup muncul selama 3 detik
+        }
+
+        // Handle slider untuk HTML Slider
+        function handleSkillSlider(slider, percentLabel, threshold, increaseMessage, decreaseMessage, happyImg, sadImg) {
+            slider.addEventListener('input', function () {
+                const currentValue = slider.value;
+                percentLabel.innerText = `${currentValue}%`;
+
+                // Jika nilai slider naik atau turun melewati ambang batas
+                if (currentValue > threshold) {
+                    showPopup(increaseMessage, happyImg); // Jika nilai lebih tinggi
+                } else if (currentValue < threshold) {
+                    showPopup(decreaseMessage, sadImg); // Jika nilai lebih rendah
+                }
+            });
+        }
+
+        // Panggil fungsi slider dengan gambar stiker
+        handleSkillSlider(
+            document.getElementById('htmlSlider'), 
+            document.getElementById('htmlPercent'), 
+            60, 
+            'Makasih udah naikin skill ku!', 
+            'Kenapa kamu turunin skill ku?', 
+            'img/seneng.png', 
+            'img/kesel.png'
+        );
+
+        handleSkillSlider(
+            document.getElementById('videoSlider'), 
+            document.getElementById('videoPercent'), 
+            65, 
+            'Aku beneran bisa ngedit kok!', 
+            'ohh gak percaya?', 
+            'img/seneng.png', 
+            'img/kesel.png'
+        );
+
+        handleSkillSlider(
+            document.getElementById('backendSlider'), 
+            document.getElementById('backendPercent'), 
+            20, 
+            'Alhamdulillah, makasih ya!', 
+            'Udah jelek nambah jelek heuheu...', 
+            'img/seneng.png', 
+            'img/kesel.png'
+        );
+
+        function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('active');
+        }
+
+        // Menutup menu jika klik di luar navbar
+        document.addEventListener('click', function(event) {
+            const navbar = document.getElementById('navbar');
+            const menuButton = document.getElementById('menuBtn');
+
+            // Jika klik di luar tombol menu dan navbar
+            if (!navbar.contains(event.target) && !menuButton.contains(event.target)) {
+                navbar.classList.remove('active');
+            }
+        });
+
+        // Dragging container
+        const container = document.getElementById('container');
+        let offsetX = 0, offsetY = 0, isDragging = false;
+
+        // Untuk mouse
+        container.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            offsetX = e.clientX - container.getBoundingClientRect().left;
+            offsetY = e.clientY - container.getBoundingClientRect().top;
+            container.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            container.style.left = `${e.clientX - offsetX}px`;
+            container.style.top = `${e.clientY - offsetY}px`;
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            container.style.cursor = 'grab';
+        });
+
+        // Untuk touchscreen
+        container.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            const touch = e.touches[0];
+            offsetX = touch.clientX - container.getBoundingClientRect().left;
+            offsetY = touch.clientY - container.getBoundingClientRect().top;
+            container.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const touch = e.touches[0];
+            container.style.left = `${touch.clientX - offsetX}px`;
+            container.style.top = `${touch.clientY - offsetY}px`;
+        });
+
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+            container.style.cursor = 'grab';
+        });
+
+
+        // Loading screen
+        function showLoading(event) {
+            event.preventDefault(); // Biar ga langsung pindah halaman
+            const targetUrl = event.currentTarget.getAttribute('href'); // Dapatkan link tujuan
+
+            // Tampilkan loading screen
+            document.getElementById('loading-screen').style.display = 'flex';
+
+            // Pindah halaman setelah animasi loading (misal 3 detik)
+            setTimeout(() => {
+                window.location.href = targetUrl; // Arahkan ke halaman tujuan
+            }, 1500); // 3 detik
+        }
+
+
+    </script>  
+</body>
+</html>
