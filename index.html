@@ -58,7 +58,7 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section
     <section id="skills-section" style="background: #111; padding: 2rem; border-radius: 12px; color: #fff; max-width: 1000px; margin: auto;">
         <h3 style="font-size: 2rem; text-align: center; margin-bottom: 2rem; color: #00bcd4; font-weight: 600;">Skills</h3>
         
@@ -85,7 +85,17 @@
                 <span id="backendPercent" style="text-align: right;">20%</span>
             </div>
         </div>
-    </section>
+    </section> -->
+
+    <section id="terminal-section">
+        <div id="terminal">
+          <div id="terminal-output"></div>
+          <input type="text" id="terminal-input" placeholder="> Type a command..." />
+          <div class="terminal-hint">
+            🛈 Hint: Try typing <code>help</code>, <code>show skills</code>, <code>projects</code>, or <code>about me</code> to learn more~
+          </div>
+        </div>
+      </section>
     <!-- Popup Section -->
     <div id="popup">
         <p id="popupText">Placeholder Text</p>
@@ -106,20 +116,22 @@
     </footer>
     
     <script>
-        const popupContainer = document.getElementById('popup');
-        const popupText = document.getElementById('popupText');
-        const popupImage = document.getElementById('popupImage');
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalOutput = document.getElementById('terminal-output');
+        // const popupContainer = document.getElementById('popup');
+        // const popupText = document.getElementById('popupText');
+        // const popupImage = document.getElementById('popupImage');
 
-        // Fungsi untuk menampilkan popup dengan gambar
-        function showPopup(message, imgSrc) {
-            popupText.innerText = message;
-            popupImage.src = imgSrc; // Ganti sumber gambar
-            popupContainer.style.display = "block";
+        // // Fungsi untuk menampilkan popup dengan gambar
+        // function showPopup(message, imgSrc) {
+        //     popupText.innerText = message;
+        //     popupImage.src = imgSrc; // Ganti sumber gambar
+        //     popupContainer.style.display = "block";
 
-            setTimeout(() => {
-                popupContainer.style.display = "none";
-            }, 3000); // Popup muncul selama 3 detik
-        }
+        //     setTimeout(() => {
+        //         popupContainer.style.display = "none";
+        //     }, 3000); // Popup muncul selama 3 detik
+        // }
 
         // Handle slider untuk HTML Slider
         function handleSkillSlider(slider, percentLabel, threshold, increaseMessage, decreaseMessage, happyImg, sadImg) {
@@ -136,36 +148,69 @@
             });
         }
 
-        // Panggil fungsi slider dengan gambar stiker
-        handleSkillSlider(
-            document.getElementById('htmlSlider'), 
-            document.getElementById('htmlPercent'), 
-            60, 
-            'Makasih udah naikin skill ku!', 
-            'Kenapa kamu turunin skill ku?', 
-            'img/seneng.png', 
-            'img/kesel.png'
-        );
+        // // Panggil fungsi slider dengan gambar stiker
+        // handleSkillSlider(
+        //     document.getElementById('htmlSlider'), 
+        //     document.getElementById('htmlPercent'), 
+        //     60, 
+        //     'Makasih udah naikin skill ku!', 
+        //     'Kenapa kamu turunin skill ku?', 
+        //     'img/seneng.png', 
+        //     'img/kesel.png'
+        // );
 
-        handleSkillSlider(
-            document.getElementById('videoSlider'), 
-            document.getElementById('videoPercent'), 
-            65, 
-            'Aku beneran bisa ngedit kok!', 
-            'ohh gak percaya?', 
-            'img/seneng.png', 
-            'img/kesel.png'
-        );
+        // handleSkillSlider(
+        //     document.getElementById('videoSlider'), 
+        //     document.getElementById('videoPercent'), 
+        //     65, 
+        //     'Aku beneran bisa ngedit kok!', 
+        //     'ohh gak percaya?', 
+        //     'img/seneng.png', 
+        //     'img/kesel.png'
+        // );
 
-        handleSkillSlider(
-            document.getElementById('backendSlider'), 
-            document.getElementById('backendPercent'), 
-            20, 
-            'Alhamdulillah, makasih ya!', 
-            'Udah jelek nambah jelek heuheu...', 
-            'img/seneng.png', 
-            'img/kesel.png'
-        );
+        // handleSkillSlider(
+        //     document.getElementById('backendSlider'), 
+        //     document.getElementById('backendPercent'), 
+        //     20, 
+        //     'Alhamdulillah, makasih ya!', 
+        //     'Udah jelek nambah jelek heuheu...', 
+        //     'img/seneng.png', 
+        //     'img/kesel.png'
+        // );
+
+        const commands = {
+            help: () => `Available commands:\n- help\n- show skills\n- about me\n- projects\n- contact\n- clear\n- exit`,
+            'show skills': () => `Skills:\nHTML/CSS: 60%\nVideo Editing: 65%\nBackend Development: 20%`,
+            'about me': () => {
+            window.location.href = 'about.html' ;
+            return 'Redirecting to About Me...';
+            },
+            projects: () => {
+            window.location.href = 'projects.html';
+            return 'Opening Projects...';
+            },
+            contact: () => {
+            window.location.href = 'kontak.html';
+            return 'Redirecting to Contact Info...';
+            },
+            clear: () => {
+            terminalOutput.innerText = '';
+            return '';
+            },
+            exit: () => 'See you in the real world, coder~'
+        };
+
+        terminalInput.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+            const input = terminalInput.value.trim();
+            terminalInput.value = '';
+            const response = commands[input] ? commands[input]() : `Command not found: ${input}`;
+            if (response) {
+                terminalOutput.innerText += `> ${input}\n${response}\n\n`;
+            }
+            }
+        });
 
         function toggleMenu() {
             const navbar = document.getElementById('navbar');
@@ -241,6 +286,8 @@
                 window.location.href = targetUrl; // Arahkan ke halaman tujuan
             }, 1500); // 3 detik
         }
+
+        
 
 
     </script>  

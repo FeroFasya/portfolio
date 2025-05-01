@@ -1,0 +1,82 @@
+<section id="terminal-section">
+  <div id="terminal">
+    <div id="terminal-output"></div>
+    <input type="text" id="terminal-input" placeholder="> Type a command..." />
+    <div class="terminal-hint">
+      🛈 Hint: Try typing <code>help</code>, <code>show skills</code>, <code>projects</code>, or <code>about me</code> to learn more~
+    </div>
+  </div>
+</section>
+
+<script>
+  const terminalInput = document.getElementById('terminal-input');
+  const terminalOutput = document.getElementById('terminal-output');
+
+  const commands = {
+    help: () => `Available commands:\n- help\n- show skills\n- about me\n- projects\n- contact\n- clear\n- exit`,
+    'show skills': () => `Skills:\nHTML/CSS: 60%\nVideo Editing: 65%\nBackend Development: 20%`,
+    'about me': () => {
+      window.location.href = 'about.html';
+      return 'Redirecting to About Me...';
+    },
+    projects: () => {
+      window.location.href = 'projects.html';
+      return 'Opening Projects...';
+    },
+    contact: () => {
+      window.location.href = 'kontak.html';
+      return 'Redirecting to Contact Info...';
+    },
+    clear: () => {
+      terminalOutput.innerText = '';
+      return '';
+    },
+    exit: () => 'See you in the real world, coder~'
+  };
+
+  terminalInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      const input = terminalInput.value.trim();
+      terminalInput.value = '';
+      const response = commands[input] ? commands[input]() : `Command not found: ${input}`;
+      if (response) {
+        terminalOutput.innerText += `> ${input}\n${response}\n\n`;
+      }
+    }
+  });
+</script>
+
+<style>
+  #terminal-section {
+    background-color: #000;
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  #terminal-output {
+    white-space: pre-wrap;
+    margin-bottom: 1rem;
+    min-height: 150px;
+  }
+
+  #terminal-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #0f0;
+    color: #0f0;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .terminal-hint {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: #0f08;
+    margin-top: 0.5rem;
+  }
+</style>
