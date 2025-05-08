@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <title>Home - Portofolioku</title>
+   
 </head>
 <body>
     <header>
@@ -41,22 +42,29 @@
 
 
 
-    <section id="hero">
+    <section id="hero" style="text-align: center; padding: 80px 30px;">
         <div class="intro">
-            <!-- Tambahan konten baru -->
-            <h1>Hi, I'm <span>Fasya</span>, a Content Creator & Web Developer!</h1>
-            <p>Kenali lebih dekat siapa aku, projek yang aku buat, dan saranmu sangat berarti!</p>
-        
-            <!-- Foto Profesional atau Ilustrasi -->
-            <img src="img/aku.jpg" alt="Foto Fasya" style="width: 150px; height: 150px; border-radius: 50%; margin: 20px 0;">
-        
-            <!-- CTA Buttons -->
+            <h1>From pixels to personality — my work is my story.</h1>
+            
+            <!-- Typing Text Container -->
+            <p id="typed-text" style="min-height: 10px; white-space: pre-wrap; font-size: 16px; color: #444; margin: 20px auto; max-width: 1000px; text-align: center;"></p>
+            
+            <!-- Profile Image -->
+            <img src="img/aku.jpg" alt="Foto Fasya" style="width: 150px; height: 150px; border-radius: 50%; margin: 20px 0; box-shadow: 0 0 10px #ffc2e2;">
+    
+            <!-- Buttons -->
             <div style="margin: 20px 0;">
-                <a href="projects.html" class="btn" onclick="showLoading(event)">See My Work</a>
-                <a href="about.html" class="btn" onclick="showLoading(event)">About me?</a>
+                <a href="projects.html" class="btn" onclick="showLoading(event)">Explore My Work ✨</a>
+                <a href="about.html" class="btn" onclick="showLoading(event)">More About Me</a>
             </div>
+    
+            <!-- Quote -->
+            <small style="display: block; margin-top: 15px; color: #888; font-style: italic;">
+                “Even the quietest voices have stories worth hearing.”
+            </small>
         </div>
     </section>
+    
 
     <!-- Skills Section
     <section id="skills-section" style="background: #111; padding: 2rem; border-radius: 12px; color: #fff; max-width: 1000px; margin: auto;">
@@ -287,9 +295,19 @@
             }, 1500); // 3 detik
         }
 
-        
+        const text = "Hi, I’m Fero. I don’t say much, but I build things that do the talking for me.\nWhether it’s a line of code, a piece of content, or just a quiet idea—I pour a little bit of myself into it. Welcome to my world.";
+            let i = 0;
+            const speed = 40; // typing speed
 
+            function typeWriter() {
+                if (i < text.length) {
+                    document.getElementById("typed-text").innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
 
+            window.addEventListener("load", typeWriter);
     </script>  
 </body>
 </html>

@@ -1,0 +1,213 @@
+/* Media Query untuk responsif di layar kecil (mobile) */
+        @media screen and (max-width: 480px) {
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            header ul {
+                top: 70px;
+            }
+
+            #navbar {
+                width: 50%;
+                height: 100vh;
+                padding-top: 80px;
+                background-color: transparent;
+            }
+            
+            #menuItems a {
+                font-size: 16px; /* Menyesuaikan ukuran font lebih kecil */
+                padding: 19px;
+                border-radius: 3px;
+            }
+            
+            #menuBtn {
+                font-size: 28px;
+            }
+
+            #hero {
+                padding: 100px 10px;
+            }
+        
+            #hero h1 {
+                font-size: 34px; /* Ukuran font heading lebih kecil */
+            }
+        
+            #hero p {
+                font-size: 19px; /* Menyesuaikan ukuran font teks */
+                padding: 20px 10px; /* Padding lebih kecil */
+            }
+        
+            #hero img {
+                width: 120px;
+                height: 120px;
+            }
+
+            #hero a {
+                padding: 10px 20px; /* Padding lebih kecil */
+                font-size: 16px; /* Ukuran font lebih kecil */
+            }
+
+            #skills-section {
+                max-width: 300px; /* Lebar maksimal lebih kecil */
+            }
+
+            #skills-section h3 {
+                font-size: 24px; /* Ukuran font lebih kecil */
+                text-align: center;
+
+            }
+
+            #skills-section p {
+                font-size: 15px; /* Ukuran font lebih kecil */
+                text-align: center;
+            }
+
+            #skills-section input[type="range"] {
+                width: 100%; /* Lebar slider 100% */
+                padding: 1px 0; /* Padding lebih kecil */
+                max-width: 300px; /* Lebar maksimal lebih kecil */
+            }
+
+            footer {
+                padding: 15px;
+                text-align: center;
+            }
+        }
+
+        /* Media Query untuk Responsif (Mobile dan Tablet) */
+@media screen and (max-width: 768px) {
+
+    header ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background-color: #111;
+        padding: 10px 0;
+    }
+
+    header ul.active {
+        display: flex;
+    }
+
+    .navbar-toggler {
+        display: block;
+    }
+    /* Button Menu */
+    #menuBtn {
+        font-size: 28px;
+                       /* Menampilkan button menu di layar kecil */
+    }
+
+    /* Navbar: membuatnya penuh di layar kecil */
+    #navbar {
+        width: 200px;
+                         /* Menampilkan navbar di layar kecil */
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0; /* Menempatkan navbar di kiri */
+        transform: translateX(-100%); /* Menyembunyikan navbar di awal */
+        opacity: 1;
+        z-index: 99;
+    }
+
+    /* Ketika navbar aktif di layar kecil, di sebelah kiri */
+    #navbar.active {
+        transform: translateX(0);
+    }
+
+    /* Styling untuk setiap item di navbar */
+    #navbar a {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+
+    /* Menu items di <ul> */
+    #menuItems {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    /* Menjadikan setiap <li> responsif */
+    #menuItems li {
+        width: 100%;
+    }
+}
+
+
+
+/* Media Query untuk Responsif (Mobile dan Tablet) */
+@media screen and (max-width: 768px) {
+
+    header ul {
+        display: none;
+    }
+
+    header ul.active {
+        display: flex;
+        flex-direction: column;
+        background-color: #111;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+    }
+
+    .navbar-toggler {
+        display: block;
+    }
+
+    
+
+    /* Button Menu */
+    #menuBtn {
+        font-size: 28px;
+                       /* Menampilkan button menu di layar kecil */
+    }
+
+    /* Navbar: membuatnya penuh di layar kecil */
+    #navbar {
+        width: 200px;
+                         /* Menampilkan navbar di layar kecil */
+        height: ;
+        position: fixed;
+        top: 0;
+        left: 0; /* Menempatkan navbar di kiri */
+        transform: translateX(-100%); /* Menyembunyikan navbar di awal */
+        opacity: 1;
+        z-index: 99;
+    }
+
+    /* Ketika navbar aktif di layar kecil, di sebelah kiri */
+    #navbar.active {
+        transform: translateX(0);
+    }
+
+    /* Styling untuk setiap item di navbar */
+    #navbar a {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+
+    /* Menu items di <ul> */
+    #menuItems {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    /* Menjadikan setiap <li> responsif */
+    #menuItems li {
+        width: 100%;
+    }
+
+    
+}
